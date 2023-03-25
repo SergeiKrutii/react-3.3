@@ -36,12 +36,11 @@ class ContactForm extends Component {
       name: name,
       number: number,
     };
+    const isExistedName = this.props.contacts.some((contact) =>
+      contact.name.includes(this.state.name)
+    );
 
-    if (
-      this.props.contacts.some((contact) =>
-        contact.name.includes(this.state.name)
-      )
-    ) {
+    if (isExistedName) {
       alert(`${this.state.name} is already in contacts`);
       return;
     }
